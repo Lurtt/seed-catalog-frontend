@@ -1,5 +1,5 @@
-import { Plants } from '../components'
+import { Offers } from '../components'
 
-const Home = () => <Plants />
+const Home = () => <Offers />
 
 export default Home

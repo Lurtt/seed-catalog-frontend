@@ -1,3 +1,5 @@
-import Home from './index'
+import { Plants as PlantList } from '../components'
 
-export default Home
+const Plants = () => <PlantList />
+
+export default Plants
