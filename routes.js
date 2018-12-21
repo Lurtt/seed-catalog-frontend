@@ -1,2 +1,3 @@
 export const HOME = '/'
-export const SECOND = '/second'
+export const DONORS = '/donors'
+export const PLANTS = '/plants'

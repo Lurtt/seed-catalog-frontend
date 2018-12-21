@@ -1,7 +1,6 @@
-import React from 'react'
 import Link from 'next/link'
 
-import { HOME, SECOND } from '../../routes'
+import { HOME, DONORS, PLANTS } from '../../routes'
 
 const Nav = () => (
   <nav>
@@ -9,8 +8,12 @@ const Nav = () => (
       <a>Home</a>
     </Link>
     {' | '}
-    <Link href={SECOND}>
-      <a>Second</a>
+    <Link href={PLANTS}>
+      <a>Plants</a>
+    </Link>
+    {' | '}
+    <Link href={DONORS}>
+      <a>Donors</a>
     </Link>
   </nav>
 )
