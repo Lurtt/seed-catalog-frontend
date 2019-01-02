@@ -1,5 +1,12 @@
-import { Offers } from '../components'
+import { Fragment } from 'react'
 
-const Home = () => <Offers />
+import { Offers, CreateOffer } from '../components'
+
+const Home = () => (
+  <Fragment>
+    <CreateOffer />
+    <Offers />
+  </Fragment>
+)
 
 export default Home

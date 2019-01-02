@@ -33,4 +33,5 @@ const Offers = () => (
   </div>
 )
 
+export { ALL_OFFERS_QUERY }
 export default Offers
