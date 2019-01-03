@@ -4,25 +4,28 @@ import styled, { ThemeProvider } from 'styled-components'
 
 import { GlobalStyle, theme as globalTheme } from '../css'
 import { Header, Meta } from '.'
+import { UserProvider } from './UserContext'
 
 class Page extends Component {
   static propTypes = {
     children: PropTypes.object.isRequired,
   }
 
-  render() {
+  render = () => {
     const { children } = this.props
 
     return (
       <ThemeProvider theme={globalTheme}>
-        <Fragment>
-          <GlobalStyle />
-          <StyledPage>
-            <Meta />
-            <Header />
-            <Inner>{children}</Inner>
-          </StyledPage>
-        </Fragment>
+        <UserProvider>
+          <Fragment>
+            <GlobalStyle />
+            <StyledPage>
+              <Meta />
+              <Header />
+              <Inner>{children}</Inner>
+            </StyledPage>
+          </Fragment>
+        </UserProvider>
       </ThemeProvider>
     )
   }
