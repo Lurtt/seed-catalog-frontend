@@ -1,4 +1,4 @@
-import { Component, Fragment } from 'react'
+import { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
 
@@ -6,7 +6,7 @@ import { GlobalStyle, theme as globalTheme } from '../css'
 import { Header, Meta } from '.'
 import { UserProvider } from './UserContext'
 
-class Page extends Component {
+class Page extends PureComponent {
   static propTypes = {
     children: PropTypes.object.isRequired,
   }

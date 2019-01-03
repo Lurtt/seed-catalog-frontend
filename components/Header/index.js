@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Nav, UserConsumer, Signin, Signout } from '..'
 
 const Header = () => (

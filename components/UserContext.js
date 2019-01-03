@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
@@ -16,7 +16,7 @@ const CURRENT_USER_QUERY = gql`
   }
 `
 
-class UserProvider extends Component {
+class UserProvider extends PureComponent {
   static propTypes = {
     children: PropTypes.object.isRequired,
   }
@@ -29,7 +29,11 @@ class UserProvider extends Component {
   render = () => {
     const { children } = this.props
     return (
-      <Query query={CURRENT_USER_QUERY} onCompleted={this.handleState}>
+      <Query
+        query={CURRENT_USER_QUERY}
+        onCompleted={this.handleState}
+        fetchPolicy="cache-and-network"
+      >
         {({ loading, error }) => {
           if (loading) return <h3>Loading app initial data...</h3>
           if (error) return <p>Error :(</p>
@@ -43,9 +47,10 @@ class UserProvider extends Component {
   handleState = data => {
     const { me } = this.state
     if (data.me !== me) {
+      const isAdmin = data.me ? data.me.role === 'ADMIN' : false
       this.setState({
         me: data.me,
-        isAdmin: data.me && data.me.role === 'ADMIN',
+        isAdmin,
       })
     }
   }

@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { PureComponent } from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -14,7 +14,7 @@ const CREATE_OFFER_MUTATION = gql`
   }
 `
 
-class CreateOffer extends Component {
+class CreateOffer extends PureComponent {
   state = {
     name: '',
   }

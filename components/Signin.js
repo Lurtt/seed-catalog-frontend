@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { PureComponent } from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -16,7 +16,7 @@ const SIGNIN_MUTATION = gql`
   }
 `
 
-class Signin extends Component {
+class Signin extends PureComponent {
   state = {
     email: '',
     password: '',
