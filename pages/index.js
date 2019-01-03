@@ -1,10 +1,12 @@
 import { Fragment } from 'react'
 
-import { Offers, CreateOffer } from '../components'
+import { Offers, CreateOffer, UserConsumer } from '../components'
 
 const Home = () => (
   <Fragment>
-    <CreateOffer />
+    <UserConsumer>
+      {({ isAdmin }) => (isAdmin ? <CreateOffer /> : null)}
+    </UserConsumer>
     <Offers />
   </Fragment>
 )
