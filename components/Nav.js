@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { HOME, DONORS, PLANTS } from '../../routes'
+import { HOME, DONORS, PLANTS } from '../routes'
 
 const Nav = () => (
   <nav>

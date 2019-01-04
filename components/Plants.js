@@ -1,31 +1,30 @@
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import Donor from './Donor'
+import { Plant } from '.'
 
-const ALL_DONORS_QUERY = gql`
-  query ALL_DONORS_QUERY {
-    donors {
+const ALL_PLANTS_QUERY = gql`
+  query ALL_PLANTS_QUERY {
+    plants {
       id
-      number
       name
     }
   }
 `
 
-const Donors = () => (
+const Plants = () => (
   <div>
-    <h1>DONORS</h1>
+    <h1>PLANTS</h1>
 
-    <Query query={ALL_DONORS_QUERY}>
+    <Query query={ALL_PLANTS_QUERY}>
       {({ data, error, loading }) => {
         if (loading) return <h1>Loading...</h1>
         if (error) return <h1>{error.message}</h1>
 
         return (
           <ul>
-            {data.donors.map(donor => (
-              <Donor key={donor.id} item={donor} />
+            {data.plants.map(plant => (
+              <Plant key={plant.id} item={plant} />
             ))}
           </ul>
         )
@@ -34,4 +33,5 @@ const Donors = () => (
   </div>
 )
 
-export default Donors
+export { ALL_PLANTS_QUERY }
+export default Plants

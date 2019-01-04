@@ -1,8 +1,7 @@
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import { UserConsumer } from '..'
-import Offer from './Offer'
+import { UserConsumer, Offer } from '.'
 
 const ALL_OFFERS_QUERY = gql`
   query ALL_OFFERS_QUERY {

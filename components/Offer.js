@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import { ALL_OFFERS_QUERY } from '..'
+import { ALL_OFFERS_QUERY } from '.'
 
 const DELETE_OFFER_MUTATION = gql`
   mutation DELETE_OFFER_MUTATION($id: ID!) {
@@ -44,4 +44,5 @@ class Offer extends PureComponent {
   }
 }
 
+export { DELETE_OFFER_MUTATION }
 export default Offer
