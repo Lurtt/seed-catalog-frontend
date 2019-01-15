@@ -31,13 +31,7 @@ class Signin extends PureComponent {
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signin, { loading, error }) => (
-          <form
-            onSubmit={async e => {
-              e.preventDefault()
-              await signin()
-              this.setState({ email: '', password: '' })
-            }}
-          >
+          <form onSubmit={async e => this.handleSignin(e, signin)}>
             <Error error={error} />
             <fieldset disabled={loading} aria-busy={loading}>
               <label htmlFor="email">
@@ -68,6 +62,12 @@ class Signin extends PureComponent {
         )}
       </Mutation>
     )
+  }
+
+  handleSignin = async (event, mutation) => {
+    event.preventDefault()
+    await mutation()
+    this.setState({ email: '', password: '' })
   }
 
   saveToState = e => {

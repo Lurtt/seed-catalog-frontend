@@ -28,12 +28,7 @@ class CreateOffer extends PureComponent {
         refetchQueries={[{ query: ALL_OFFERS_QUERY }]}
       >
         {(createOffer, { loading, error }) => (
-          <form
-            onSubmit={e => {
-              e.preventDefault()
-              createOffer()
-            }}
-          >
+          <form onSubmit={e => this.handleCreateOffer(e, createOffer)}>
             <Error error={error} />
             <fieldset disabled={loading} aria-busy={loading}>
               <label htmlFor="name">
@@ -54,6 +49,11 @@ class CreateOffer extends PureComponent {
         )}
       </Mutation>
     )
+  }
+
+  handleCreateOffer = async (event, mutation) => {
+    event.preventDefault()
+    await mutation()
   }
 
   saveToState = e => {
