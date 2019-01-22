@@ -1,5 +1,6 @@
 const fonts = {
   defaultFontSize: '1rem',
+  primaryFont: 'San Francisco',
 }
 
 const app = {
