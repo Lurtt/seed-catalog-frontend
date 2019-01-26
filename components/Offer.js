@@ -2,7 +2,9 @@ import { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import Link from 'next/link'
 
+import { OFFER } from '../routes'
 import { ALL_OFFERS_QUERY } from '.'
 
 const DELETE_OFFER_MUTATION = gql`
@@ -16,6 +18,7 @@ const DELETE_OFFER_MUTATION = gql`
 class Offer extends PureComponent {
   static propTypes = {
     item: PropTypes.shape({
+      id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
     }),
     canRemove: PropTypes.bool.isRequired,
@@ -25,7 +28,14 @@ class Offer extends PureComponent {
     const { item, canRemove } = this.props
     return (
       <div>
-        <span>{item.name}</span>
+        <Link
+          href={{
+            pathname: OFFER,
+            query: { id: item.id },
+          }}
+        >
+          <a>{item.name}</a>
+        </Link>
         {canRemove && (
           <Mutation
             mutation={DELETE_OFFER_MUTATION}
