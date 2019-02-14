@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 
-const Offer = ({ query }) => <div>offer detail page. Offer ID: {query.id}</div>
+import { OfferDetail } from '../components'
+
+const Offer = ({ query }) => <OfferDetail id={query.id} />
 
 Offer.propTypes = {
   query: PropTypes.shape({
